@@ -8,10 +8,8 @@ import CharacterCard from "../CharacterCard/CharacterCard";
 const HouseDetail = (props) => {
   const dispatch = ReactRedux.useDispatch();
 
-  const name = ReactRedux.useSelector((state) => state.house.name);
-  const words = ReactRedux.useSelector((state) => state.house.words);
+  const house = ReactRedux.useSelector((state) => state.house);
 
-  const characters = ReactRedux.useSelector((state) => state.house.characters);
   // console.log(characters);
   const houseId = props.match.params.houseId;
 
@@ -21,10 +19,10 @@ const HouseDetail = (props) => {
 
   return (
     <div>
-      <p>{name}</p>
-      <p>{words}</p>
+      <p>{house.name}</p>
+      <p>{house.words}</p>
       <h3>Characters</h3>
-      {characters?.map((character) => (
+      {house.characters?.map((character) => (
         <CharacterCard
           key={character.id}
           id={character.id}
